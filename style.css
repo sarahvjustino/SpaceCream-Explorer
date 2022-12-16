@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Palanquin&family=Roboto&family=Staatliches&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+:root {
+    --ff-heading: 'Staatliches', cursive;
+    --ff-texting: 'Palanquin', sans-serif;
+    --ff-texting-secondary: 'Roboto', sans-serif;
+    --ff-footer: 'Open Sans', sans-serif;
+    font-size: 62.5%;
+    --fs-body: 1.6rem;
+
+    --hue: 275;
+    --bg-header: hsl(var(--hue), 17%, 62%);
+    --bg-primary: hsl(var(--hue), 18%, 79%);
+    --bg-secondary: hsl(var(--hue), 100%, 97%);
+    --bg-secondary-card: hsl(var(--hue), 91%, 96%);
+
+
+    --fc-texting: hsl(var(--hue), 84%, 12%);
+    --fc-texting-sm: hsl(var(--hue), 0%, 100%);
+    --fc-primary: hsla(var(--hue), 0%, 100%);
+    --fc-secondary: hsl(var(--hue), 17%, 35%);
+
+
+}
+
+body {
+    font-size: var(--fs-body);
+}
+
+.page {
+    max-width: clamp(39rem, 33rem + 64vw, 128rem);
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100vw;
+    height: 28rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.2rem;
+    background: var(--bg-header);
+
+    padding-top: 3.8rem;
+}
+
+header div {
+    width: 100%;
+    background-color: var(--bg-primary);
+    text-align: center;
+}
+
+header img {
+    transition: transform 700ms;
+}
+
+header img:hover {
+    transform: scale(0.9);
+}
+
+header h1 {
+    font-family: var(--ff-heading);
+    font-size: 4rem;
+    font-weight: 400;
+    line-height: 3.6rem;
+    color: var(--fc-primary);
+
+    padding: 8px 8rem;
+
+    animation: lefttoright 700ms 250ms backwards;
+}
+
+header p {
+    display: none;
+}
+
+main {
+    display: grid;
+    gap: 3.6rem;
+    max-width: clamp(32rem, 25rem + 50vw, 77rem);
+    margin: auto;
+    margin-bottom: 5rem;
+    padding: 1rem;
+}
+
+main .text p {
+    font-family: var(--ff-texting);
+    font-size: 2rem;
+    color: var(--fc-texting);
+    line-height: 2rem;
+    margin: 1.6rem 0 3rem 0;
+    text-align: center;
+
+    animation: lefttoright 700ms 350ms backwards ease-in-out;
+}
+
+main .card {
+    position: relative;
+    transition: transform 700ms;
+    margin-top: 3rem;
+}
+
+main .card:hover {
+    transform: scale(0.9);
+}
+
+main .card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    animation: downtotop 700ms 600ms backwards ease-in;
+}
+
+
+main span {
+    font-family: var(--ff-heading);
+    font-size: 2rem;
+    line-height: 3.4rem;
+    font-weight: 400;
+    color: var(--fc-secondary);
+    position: absolute;
+    background-color: var(--bg-secondary-card);
+    padding: 0 2.3rem;
+    border-radius: 2rem;
+    top: 1.6rem;
+    right: 1.6rem;
+
+    animation: toptodown 700ms 700ms backwards ease-in;
+}
+
+footer,
+.cards .card:nth-child(3),
+.cards .card:nth-child(4) {
+    display: none;
+}
+
+@keyframes lefttoright {
+    0% {
+        opacity: 0;
+        transform: translateX(-25px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes downtotop {
+    0% {
+        opacity: 0;
+        transform: translateY(45px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toptodown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
