@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Palanquin&family=Roboto&family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Palanquin&family=Roboto&family=Staatliches&display=swap');
 
 * {
     margin: 0;
@@ -34,12 +34,9 @@ body {
 }
 
 .page {
-    max-width: clamp(39rem, 33rem + 64vw, 128rem);
     margin: 0 auto;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
 }
 
 header {
@@ -74,7 +71,7 @@ header h1 {
     font-weight: 400;
     line-height: 3.6rem;
     color: var(--fc-primary);
-
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     padding: 8px 8rem;
 
     animation: lefttoright 700ms 250ms backwards;
@@ -85,12 +82,10 @@ header p {
 }
 
 main {
-    display: grid;
-    gap: 3.6rem;
-    max-width: clamp(32rem, 25rem + 50vw, 77rem);
-    margin: auto;
-    margin-bottom: 5rem;
-    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.8rem 3.2rem 6rem;
 }
 
 main .text p {
@@ -104,10 +99,19 @@ main .text p {
     animation: lefttoright 700ms 350ms backwards ease-in-out;
 }
 
+.cards {
+    display: grid;
+    gap: 3.2rem;
+    margin-top: 5rem;
+}
+
 main .card {
     position: relative;
     transition: transform 700ms;
     margin-top: 3rem;
+
+    width: 32rem;
+    height: fit-content;
 }
 
 main .card:hover {
@@ -116,22 +120,20 @@ main .card:hover {
 
 main .card img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
     animation: downtotop 700ms 600ms backwards ease-in;
 }
-
 
 main span {
     font-family: var(--ff-heading);
     font-size: 2rem;
     line-height: 3.4rem;
-    font-weight: 400;
+    letter-spacing: 2px;
+    text-align: center;
     color: var(--fc-secondary);
-    position: absolute;
     background-color: var(--bg-secondary-card);
-    padding: 0 2.3rem;
     border-radius: 2rem;
+    width: 11.2rem;
+    position: absolute;
     top: 1.6rem;
     right: 1.6rem;
 
@@ -177,5 +179,143 @@ footer,
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (min-width: 900px) {
+    .page {
+        display: flex;
+        height: 100%;
+
+    }
+
+    header {
+        height: 100%;
+        width: 37.7rem;
+        position: fixed;
+
+    }
+
+    header p {
+        font-family: var(--ff-texting-secondary);
+        width: 27.5rem;
+        color: #FFF;
+        font-size: 1.8rem;
+        line-height: 2rem;
+        text-align: center;
+        display: block;
+
+        animation: lefttoright 700ms 350ms backwards ease-in-out;
+
+    }
+
+
+    main p {
+        display: none;
+    }
+
+    .cards .card:nth-child(3),
+    .cards .card:nth-child(4) {
+        display: block;
+    }
+
+
+    .cards {
+        margin-left: 45rem;
+        grid-template-areas:
+            'A B'
+            'C B'
+            'C D'
+            'E F'
+        ;
+    }
+
+    .cards .card:nth-child(1) {
+        grid-area: A;
+    }
+
+    .cards .card:nth-child(2) {
+        grid-area: B;
+    }
+
+    .cards .card:nth-child(3) {
+        grid-area: D;
+    }
+
+    .cards .card:nth-child(4) {
+        grid-area: C;
+    }
+
+    .cards .card:nth-child(5) {
+        grid-area: E;
+    }
+
+    .cards .card:nth-child(6) {
+        grid-area: F;
+    }
+
+    footer {
+        width: 100%;
+        padding-top: 4rem;
+        display: inline-block;
+        text-align: center;
+    }
+
+    footer p {
+        padding-left: 42rem;
+        display: inline;
+        font-family: var(--ff-footer);
+        color: var(--fc-secondary);
+        font-size: 1.6rem;
+        line-height: 2.8rem;
+
+
+    }
+
+    footer p a {
+        font-family: var(--ff-footer);
+        color: var(--fc-secondary);
+        font-size: 1.4rem;
+        line-height: 2.8rem;
+        text-decoration: none;
+    }
+
+    footer p a:hover {
+        font-weight: 700;
+        color: #000;
+    }
+}
+
+@media (min-width: 1440px) {
+    .cards {
+        margin-left: 38rem;
+        grid-template-areas:
+            'A B C'
+            'D B E'
+            'D F E';
+    }
+
+    .cards .card:nth-child(1) {
+        grid-area: A;
+    }
+
+    .cards .card:nth-child(2) {
+        grid-area: B;
+    }
+
+    .cards .card:nth-child(3) {
+        grid-area: C;
+    }
+
+    .cards .card:nth-child(4) {
+        grid-area: D;
+    }
+
+    .cards .card:nth-child(5) {
+        grid-area: F;
+    }
+
+    .cards .card:nth-child(6) {
+        grid-area: E;
     }
 }
