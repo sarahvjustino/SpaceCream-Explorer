@@ -194,6 +194,7 @@ footer,
         width: 37.7rem;
         position: fixed;
 
+        animation: slideIn 1s;
     }
 
     header p {
@@ -317,5 +318,17 @@ footer,
 
     .cards .card:nth-child(6) {
         grid-area: E;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-75px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
